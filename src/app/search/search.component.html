@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+    <div class="container" *ngIf="!showDetailedView">
+        <div class="row">
+            <div class="col-md-12">
+                <form class="navbar-form navbar-left" role="search">
+                    <div class="form-group">
+                      <input type="text" class="form-control" [(ngModel)]="name" name="name" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-primary" (click)="searchGit()">Search</button>
+                </form>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-6" *ngFor="let item of items">
+                    <a href="#" (click)="userDetail($event, item.url)">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">
+                                        {{item.login}}
+                                    </h3>
+                                </div>
+                                <div class="panel-body">
+                                        <div class="col-md-2">
+                                                <img class="avatar-img" src="{{item.avatar_url}}" alt="avatar">
+                                        </div>
+                                        <div class="col-md-4">
+                                                <strong>{{item.login}}</strong>
+                                        </div>
+                                </div>
+                            </div>
+                        </a>
+            </div>
+                
+        </div>
+
+        
+
+
+
+        <!-- <div class="row" *ngFor="let item of items">
+            <a href="#" (click)="userDetail($event, item.url)">
+                <div class="col-md-2">
+                    <img class="avatar-img" src="{{item.avatar_url}}" alt="avatar">
+                </div>
+                <div class="col-md-2">
+                    <strong>{{item.login}}</strong>
+                </div>
+            </a>
+        </div> -->
+
+
+    </div>
+    <div class="container" *ngIf="showDetailedView">
+        <div *ngFor="let entry of response | keys">
+             <strong>{{entry.key | capitalize}} :</strong> {{entry.value}}
+        </div>
+        <hr>
+        <h2>Repositories</h2>
+        <div *ngFor="let repo of repos; let i = index">
+            <strong>{{i+1}}. </strong> {{repo.name}}
+        </div>
+    </div>
+
+</body>
+</html>
