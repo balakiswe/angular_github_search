@@ -1,8 +1,4 @@
 {
-  "engines": {
-    "node": "10.1.0",
-    "npm": "5.6.0"
-  },
   "name": "angular-github-api",
   "version": "0.0.0",
   "license": "MIT",
@@ -55,5 +51,9 @@
     "ts-node": "1.2.1",
     "tslint": "^4.3.0",
     "typescript": "~2.0.3"
+  },
+  "engines": {
+    "node": "8.11.2",
+    "npm": "5.6.0"
   }
 }
